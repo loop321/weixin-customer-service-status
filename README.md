@@ -24,7 +24,7 @@
   ]
  </pre>
  
- # Install
+# Install
 <div>
  <p>1.打开谷歌浏览器，地址栏输入 <code>chrome://extensions</code>。</p>
  <p>2.点击<code>加载已解压的扩展程序...</code>,选择本项目目录。</p>
