@@ -25,7 +25,8 @@
  </pre>
  
  # Install
- 1.打开谷歌浏览器，地址栏输入 <code>chrome://extensions</code>。
- 2.点击<code>加载已解压的扩展程序...</code>,选择本项目目录。
- 3.进入微信客服页面 <code>https://mpkf.weixin.qq.com/cgi-bin/kfindex?token=1859023312</code>,登陆后即可看到左上角固定漂浮窗口显示在线客服列表。
- 
+<div>
+ <p>1.打开谷歌浏览器，地址栏输入 <code>chrome://extensions</code>。</p>
+ <p>2.点击<code>加载已解压的扩展程序...</code>,选择本项目目录。</p>
+ <p>3.进入微信客服页面 <code>https://mpkf.weixin.qq.com/cgi-bin/kfindex?token=1859023312</code>,登陆后即可看到左上角固定漂浮窗口显示在线客服列表。</p>
+</div>
