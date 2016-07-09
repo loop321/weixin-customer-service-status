@@ -1,0 +1,78 @@
+.exbody{
+	position:fixed;width:180px;height:350px;z-index:100;
+	left: 10px;top: 50px;background-color:#fff;-moz-opacity:0.8;
+	opacity:0.8;
+	font-size:14px;
+	padding:5px;
+	overflow:hidden;
+	border-radius:8px;
+	text-align:center;
+}
+.exbody .title{
+	height:30px;
+	line-height:35px;
+	border-bottom:1px solid #ccc;
+	font-size:16px;
+	font-weight:bold;
+}
+.ex{
+	width:170px;
+	height:295px;
+	margin:0 auto;
+	overflow-x:hidden;
+	overflow-y:auto;
+
+}
+.ex li{
+	cursor:pointer;
+	width:180px;
+	height:25px;
+	line-height:25px;
+	border-bottom:1px dashed #cdc;
+}
+.ex li:hover {
+	background-color:#cff;
+}
+.ex li img{
+	display:inline-block;
+	width:25px;
+	height:22px;
+	margin-right:3px;
+}
+.ex li .nick{
+	display:inline-block;
+	width:125px;
+	text-align:left;
+}
+.ex li .accept{
+	display:inline-block;
+	width:25px;
+}
+.exbtn{
+	border-top:1px solid #ccc;
+	width:170px;
+	margin:0 auto;
+	text-align:center;
+	position:absolute;
+	top:332px;
+}
+.exbtn button{
+	margin-top:3px;
+	width:60px;	
+	border-radius:5px;
+	background-color:#fff;
+}
+.exbtn button:hover{
+	background-color:#cff;
+}
+.extip{
+	width:50px;
+	color:#cff;
+	background-color:#000;
+	opacity:.6;
+	text-align:center;
+	position:absolute;
+	top:150px;
+	left:60px;
+	display:none;
+}

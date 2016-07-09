@@ -1,0 +1,24 @@
+{  
+  "name": "客服平台-扩展", 
+  "version": "0.1.0",
+  "manifest_version": 2,  
+  "description": "客服平台-扩展，客服快捷工具",  
+  "browser_action": {
+    "default_icon": "icon.png", 
+    "default_title": "客服平台"
+  },
+  "permissions": [
+    "tabs","http://*/"
+  ],
+  "background": { 
+	"scripts": ["js/jquery-2.0.0.min.js", "js/background.js"]
+  }, 
+  "content_scripts": [
+    {
+      "matches": ["https://mpkf.weixin.qq.com/*"],
+      "js": ["js/jquery-2.0.0.min.js","js/mycs.js"],
+      "css": ["css/mystyle.css"],
+      "run_at": "document_idle"
+    }
+  ]
+} 
