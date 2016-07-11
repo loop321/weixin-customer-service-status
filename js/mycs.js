@@ -2,13 +2,13 @@ var Extend = {
 	Init: function(){
 		_this = this
 		//在Dom中增加客服工具栏
-		$(document.body).prepend("<div class = 'exbody'><div class = 'title'>在线客服</div><ol class = 'ex'></ol><div class = 'exbtn'><button n = 1>刷新</button>&nbsp;　<button n = 2>刷新2</button></div><div class = 'extip'>ok...</div></div>");
+		$(document.body).prepend("<div class = 'exbody'><div class = 'title'>在线客服</div><ol class = 'ex'></ol><div class = 'exbtn'><button n = 0>刷新</button>&nbsp;　<button n = 1>刷新2</button></div><div class = 'extip'>ok...</div></div>");
 		//绑定手动刷新事件
 		$(".exbtn button").click(function(){
 			_this.Getkflist($(this).attr("n"))
 		})
 		//定时刷在线客服信息
-		this.Set()
+		this.Set(this)
 	},
 	Tpl: "<li><img src = '$kf_headimgurl$'><span class = 'nick'>$kf_nick$</span><span class = 'accept'>$accepted_case$</span></li>",
 	SetTask: null,
@@ -18,12 +18,12 @@ var Extend = {
 			for(var i  =  0; i < res.length; i++){    
 				var min  = eval("res[i]."+sortKey), min_index  =  i
 					  for (var j  =  i; j < res.length; j++){
-						  if ((!order||order =  = "asc")?eval("res[j]."+sortKey) < min:eval("res[j]."+sortKey) > min){
+						  if ((!order||order == "asc")?eval("res[j]."+sortKey) < min:eval("res[j]."+sortKey) > min){
 							  min  =  eval("res[j]."+sortKey)
 							  min_index  =  j
 						  }
 					  }
-					  if (min_index ! =  i){
+					  if (min_index !=  i){
 						  var temp  =  res[i]
 						  res[i]  =  res[min_index]
 						  res[min_index]  =  temp
@@ -41,8 +41,8 @@ var Extend = {
 				var showInfo = ""
 				if(respData){
 					console.log(respData)	
-					respData = this.SortObjInArray(respData,"accepted_case","asc")
-					this.CreateHtml(respData);
+					respData = _this.SortObjInArray(respData,"accepted_case","asc")
+					_this.CreateHtml(respData);
 					if (!b_auto){
 						showInfo = "ok..."
 					}
@@ -54,29 +54,27 @@ var Extend = {
 						$(".extip").hide().css({opacity:0.6})
 					})
 				}
-				_this.Set()
 		});
+		_this.SetTask=setTimeout(function(){_this.Set(_this);}, 10000);
 	},
 	CreateHtml:function(jsonData){
 		var strHtml = ""
 		for (var i = 0;i<jsonData.length;i++){
-			strHtml += tpl.replace(/\$(.*?)\$/g,function(match,field,c){
+			strHtml += this.Tpl.replace(/\$(.*?)\$/g,function(match,field,c){
 				return jsonData[i][field]
 			})
 		}
 		$("ol.ex").html(strHtml)
 	},
-	Set:function(){
-		_this = this
-		this.Getkflist("",true)
-		SetTask = setTimeout(_this.Set,30000)
+	Set:function(that){
+		that.Getkflist("",true)
 	},
 	ClearSet:function(){
-		if (SetTask){
-			clearTimeout(SetTask)
+		_this=this
+		if (_this.SetTask){
+			clearTimeout(_this.SetTask)
 		}	
 	}
 }
 
 Extend.Init()
-
