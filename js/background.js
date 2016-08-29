@@ -1,5 +1,5 @@
 ﻿//微信后端服务地址
-var URL="http://www.qmx.top/***"
+var URL="http://域名/***"
 chrome.runtime.onMessage.addListener(function(request, sender, callback){
 	$.ajax({
 			url: URL+request.type,
